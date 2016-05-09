@@ -1,0 +1,20 @@
+{
+  "name": "chatty_redux",
+  "homepage": "https://github.com/RussellRiesJr/spa-group-chatty-rtj",
+  "authors": [
+    "Russell Ries <riesru@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}

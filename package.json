@@ -1,0 +1,26 @@
+{
+  "name": "chatty_redux",
+  "version": "1.0.0",
+  "description": "Every teammate copy and run the following commands in the host machine terminal.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RussellRiesJr/spa-group-chatty-rtj.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RussellRiesJr/spa-group-chatty-rtj/issues"
+  },
+  "homepage": "https://github.com/RussellRiesJr/spa-group-chatty-rtj#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-watch": "^4.3.5",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0"
+  }
+}
