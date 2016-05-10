@@ -11,13 +11,12 @@ var chatty = (function(originalChatty) {
     messageArray.push({id:counter, message:messageInfo, timestamp:new Date()});
     console.log("chatbox", $("#chatbox"));
     $("#chatbox").append(`<div class="userMessage"><h3>${messageInfo.user}:</h3><p class="mess">${messageInfo.messageStr}</p><div class="messageButtons"><button type="delete" id="delete${counter}" class="delete">delete</button><button type="edit" id="edit${counter}" class="edit">edit</button></div><p class="initial-timestamp">${messageArray[messageArray.length - 1].timestamp}</p></div>`);
-    clearAll.removeAttr("disabled");
+    $clearAll.removeAttr("disabled");
     counter++;
     console.log("this", chatbox.children.length);
     if (chatbox.children.length > 20) {
-      chatbox.removeChild(chatbox.getElementsByTagName("div")[0]);
-      var twentyAlert = document.getElementById('twentyPlus');
-      twentyAlert.innerHTML = "Only the 20 newest messages are being shown";
+      chatbox.remove(chatbox.$("div")[0]);
+      $("#twentyPlus").html("Only the 20 newest messages are being shown");
     }
     window.scrollTo(0,document.body.scrollHeight);
   };

@@ -3,17 +3,15 @@ var chatty = (function(chatty) {
 
   // function for deleting individual message elements out of the DOM
   chatty.deleteMessage = function(deleteClicked) {
-    chatbox.removeChild(deleteClicked.parentNode);
+    $chatbox.remove(deleteClicked.parentNode);
     chatty.deleteObject(deleteClicked.id.replace("delete", ""));
   }
 
   // function for deleting ALL message elements out of the DOM, disables clear button
   chatty.clearAllMessages = function(clickEvent) {
-    while (chatbox.firstChild) {
-      chatbox.removeChild(chatbox.firstChild);
-    }
+    $chatbox.empty();
     chatty.clearArray();
-    clearAll.setAttribute("disabled", "disabled");
+    $clearAll.attr("disabled", "disabled");
   }
 
   return chatty

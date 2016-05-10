@@ -6,22 +6,26 @@ var edit = false;
 
 // adding event listener for keypress
 document.addEventListener("keyup", function(e) {
-  var userInput = $("#userInput");
+  var $userInput = $("#userInput");
   if (e.keyCode === 13) {
     if (edit) {
       chatty.editor();
     } else {
       var messageInfo = {};
-      messageInfo.messageStr = userInput.value;
+      messageInfo.messageStr = $userInput.val();
       console.log(messageInfo.messageStr);
-      var userOptions = $(".userOptions");
-      for (var i = 0; i < userOptions.length; i++) {
-        if (userOptions[i].checked){
-          messageInfo.user = userOptions[i].value;
+      var $userOptions = $(".userOptions");
+      $userOptions.each(function(options) {
+        $userOptions[options];
+        if ($userOptions[options].checked){
+          console.log($userOptions[options]);
+          messageInfo.user = $userOptions[options].value;
         }
-      }
+      })
+      // for (var i = 0; i < $userOptions.length; i++) {
+      // }
       chatty.userInputMessages(messageInfo);
-      userInput.value = "";
+      $userInput.val("");
     }
   }
 });
@@ -37,13 +41,13 @@ $("#largeText").click(function(event) {
 });
 
 // adding event listener for delete and edit buttons
-var chatbox = $("#chatbox");
-chatbox.click(function() {
-  if (event.target.className === "delete") {
-    var deleteClicked = event.target;
+var $chatbox = $("#chatbox");
+$chatbox.click(function() {
+  if ($(event.target.class) === "delete") {
+    var deleteClicked = $(event.target);
     chatty.deleteMessage(deleteClicked);
-  } else if (event.target.className === "edit") {
-    var editClicked = event.target;
+  } else if ($(event.target.class) === "edit") {
+    var editClicked = $(event.target);
     console.log(editClicked)
     chatty.editFocus(editClicked);
   } else {
@@ -52,5 +56,6 @@ chatbox.click(function() {
 });
 
 // adding event listener for clear button
-$("#clear").click(chatty.clearAllMessages);
+var $clearAll = $("#clear")
+$clearAll.click(chatty.clearAllMessages);
 
