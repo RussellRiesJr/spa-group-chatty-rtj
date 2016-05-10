@@ -9,8 +9,9 @@ var chatty = (function(originalChatty) {
   // function for creating messages, enabling the "disabled" clear button, and scrolling page down to last message
   originalChatty.userInputMessages = function(messageInfo) {
     messageArray.push({id:counter, message:messageInfo, timestamp:new Date()});
-    chatbox.innerHTML += `<div class="userMessage"><h3>${messageInfo.user}:</h3><p class="mess">${messageInfo.messageStr}</p><div class="messageButtons"><button type="delete" id="delete${counter}" class="delete">delete</button><button type="edit" id="edit${counter}" class="edit">edit</button></div><p class="initial-timestamp">${messageArray[messageArray.length - 1].timestamp}</p></div>`;
-    clearAll.removeAttribute("disabled");
+    console.log("chatbox", $("#chatbox"));
+    $("#chatbox").append(`<div class="userMessage"><h3>${messageInfo.user}:</h3><p class="mess">${messageInfo.messageStr}</p><div class="messageButtons"><button type="delete" id="delete${counter}" class="delete">delete</button><button type="edit" id="edit${counter}" class="edit">edit</button></div><p class="initial-timestamp">${messageArray[messageArray.length - 1].timestamp}</p></div>`);
+    clearAll.removeAttr("disabled");
     counter++;
     console.log("this", chatbox.children.length);
     if (chatbox.children.length > 20) {
@@ -46,7 +47,7 @@ var chatty = (function(originalChatty) {
     edit = true;
     currentMessage = editClicked;
     console.log("i am working");
-    var inputEdit = document.getElementById("userInput");
+    var inputEdit = $("#userInput");
     inputEdit.focus();
     for (var i = 0; i < messageArray.length; i++) {
       if (messageArray[i].id == editClicked.id.replace("edit", "")) {
@@ -58,7 +59,7 @@ var chatty = (function(originalChatty) {
 
   originalChatty.editor = function () {
     console.log(currentMessage);
-    currentMessage.parentNode.previousSibling.innerHTML = document.getElementById('userInput').value;
+    currentMessage.parentNode.previousSibling.innerHTML = $("#userInput").val();
     edit = false;
   }
 
