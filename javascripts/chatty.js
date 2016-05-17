@@ -5,7 +5,7 @@ var body = $("#bod");
 var edit = false;
 
 // adding event listener for keypress
-document.addEventListener("keyup", function(e) {
+document.keyup(function(e) {
   var $userInput = $("#userInput");
   if (e.keyCode === 13) {
     if (edit) {
@@ -13,17 +13,13 @@ document.addEventListener("keyup", function(e) {
     } else {
       var messageInfo = {};
       messageInfo.messageStr = $userInput.val();
-      console.log(messageInfo.messageStr);
       var $userOptions = $(".userOptions");
       $userOptions.each(function(options) {
         $userOptions[options];
         if ($userOptions[options].checked){
-          console.log($userOptions[options]);
           messageInfo.user = $userOptions[options].value;
         }
       })
-      // for (var i = 0; i < $userOptions.length; i++) {
-      // }
       chatty.userInputMessages(messageInfo);
       $userInput.val("");
     }

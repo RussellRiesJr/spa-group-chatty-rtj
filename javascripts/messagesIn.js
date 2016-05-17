@@ -58,7 +58,7 @@ var chatty = (function(originalChatty) {
 
   originalChatty.editor = function () {
     console.log(currentMessage);
-    currentMessage.parentNode.previousSibling.innerHTML = $("#userInput").val();
+    currentMessage.parentNode.previousSibling.HTML($("#userInput").val());
     edit = false;
   }
 
